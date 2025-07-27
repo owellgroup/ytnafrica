@@ -5,19 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="ProofOfPayments")
-public class ProofOfPayments {
+@Table(name="MemberCategory")
+public class MemberCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Amount;
-    private String fileUrl;
-    private String filetype;
-    private LocalDate uploadedDate;
+    private String CategoryName;
 }
