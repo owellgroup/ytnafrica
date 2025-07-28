@@ -1,4 +1,4 @@
-package com.example.ytnafrica.models;
+package com.example.ytnafrica.models.admin;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="ArtistUploadType")
-public class ArtistUploadType {
+@Table(name="InvoiceItems")
+public class InvoiceServiceType {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
-    private long id;
-    private String WorkUploadType; //Audio/ Video
+    private Long id;
+    private String invoiceServiceName; // Audio Broadcasting/ Video Broadcasting
 }

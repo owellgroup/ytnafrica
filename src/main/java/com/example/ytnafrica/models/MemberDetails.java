@@ -41,14 +41,14 @@ public class MemberDetails {
     private int NoOFDependents;
     //
     private String TypeOfWork;
-    //
-    private String ResidentialAddress;
-    //
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "Gender_Id")
     private Gender Gender;
     //
-    private String PostalAddress;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="Address_Id")
+    private Address Address;
     //
     private LocalDate BirthDate;
     //

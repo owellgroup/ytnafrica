@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="ArtistUploadType")
-public class ArtistUploadType {
+@Table(name="BankName")
+public class BankName {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
-    private long id;
-    private String WorkUploadType; //Audio/ Video
+    private Long id;
+    private String bankName;
 }
