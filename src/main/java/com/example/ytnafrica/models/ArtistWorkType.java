@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="members")
-public class MemberForms {
+@Table(name="ArtistWorkType")
+public class ArtistWorkType {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private long id;
-    @Column(nullable = false)
-    private String title;
-    private String firstname;
-    private String lastname;
+    private String workType;// e.g Pop, Jazz, Gospel, etc
 }
