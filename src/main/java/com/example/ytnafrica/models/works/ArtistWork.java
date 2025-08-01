@@ -1,5 +1,6 @@
-package com.example.ytnafrica.models;
+package com.example.ytnafrica.models.works;
 
+import com.example.ytnafrica.models.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

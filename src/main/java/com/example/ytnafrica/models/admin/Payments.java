@@ -1,6 +1,6 @@
 package com.example.ytnafrica.models.admin;
 
-import com.example.ytnafrica.models.MemberDetails;
+import com.example.ytnafrica.models.members.MemberDetails;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

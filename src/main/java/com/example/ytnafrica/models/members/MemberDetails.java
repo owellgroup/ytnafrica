@@ -1,6 +1,9 @@
-package com.example.ytnafrica.models;
+package com.example.ytnafrica.models.members;
 
+import com.example.ytnafrica.models.*;
+import com.example.ytnafrica.models.works.ArtistWork;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +19,15 @@ public class MemberDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+    //
     @Column(nullable = false)
-    private String title;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="Titlle_Id")
+    private Tittle title;
+    //
+    @Column(unique = true)
     private String MemberID;
+    //
     @Column(nullable=false)
     private String FirstName;
     @Column(nullable=false)
@@ -26,7 +35,7 @@ public class MemberDetails {
     private String Pseudonym;
     @Column(nullable=false)
     private String PhoneNumber;
-    @Column(nullable=false)
+    @Column(unique = true)
     private String Email;
     private String GroupNameORStageName;
     //

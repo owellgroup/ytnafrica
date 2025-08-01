@@ -1,8 +1,7 @@
 package com.example.ytnafrica.models.company;
 
 import com.example.ytnafrica.models.ArtistUploadType;
-import com.example.ytnafrica.models.ArtistWork;
-import com.example.ytnafrica.models.ArtistWorkType;
+import com.example.ytnafrica.models.works.ArtistWork;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
