@@ -15,5 +15,5 @@ public class ArtistUploadType {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
-    private String WorkUploadType; //Audio/ Video
+    private String WorkUploadType; //Audio/ Video/ both
 }

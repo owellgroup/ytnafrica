@@ -2,6 +2,7 @@ package com.example.ytnafrica.models.company;
 
 import com.example.ytnafrica.models.Address;
 import com.example.ytnafrica.models.BankDetails;
+import com.example.ytnafrica.models.License_Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,4 +30,8 @@ public class CompanyDetails {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="BankDetails_Id")
     private BankDetails BankDetails;
+    //
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="License_Type_id")
+    private License_Type License_Type;
 }

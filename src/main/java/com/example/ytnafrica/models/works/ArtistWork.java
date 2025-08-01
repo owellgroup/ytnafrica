@@ -54,7 +54,8 @@ public class ArtistWork {
     private IPI IPI_For_Each_Work;
     //
     @ManyToOne(fetch = FetchType.LAZY)
-    //
-    @JoinColumn(name="Lincense_Type_id")//e.g broadcasting license and than after selected automatic generate copyrights as stands
-    private License_Type License_Type;//when you select license from the list auto generate the copy rights
+    @JoinColumn(name="CopyRight_id")
+    private CopyRights copyRights;
+    //generate copyrights
+
 }

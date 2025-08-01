@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -16,8 +17,8 @@ import java.time.LocalTime;
 @Table(name="invoices")
 public class Invoices {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long Id;
+    @GeneratedValue(strategy= GenerationType.UUID)
+    private UUID Id;
     private String InvoiceNumber;
     private LocalDate Invoicedate;
     private LocalTime InvoiceDueDate;
@@ -29,6 +30,7 @@ public class Invoices {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="OriginCompanybankdetails_id")
     private OrginCompanybankDetaills OriginCompanybankdetails;
+
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="CompanyDetails_id")
