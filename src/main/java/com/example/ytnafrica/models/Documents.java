@@ -22,7 +22,7 @@ public class Documents {
     private String fileUrl;
     private LocalDate dateposted;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name="documentsCategoory_id", nullable=false)
-    private DocumentsCategory documentsCategory;
+    @JoinColumn (name="documentsCategoory_id")
+    private DocumentsCategory documentsCategory;//Id or Passport
 
 }

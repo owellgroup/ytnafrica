@@ -16,7 +16,7 @@ public class CopyRights {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String copyrightHolder;
+    private String copyrightHolderName;
     private String composer;
     private String producer;
     private String label;

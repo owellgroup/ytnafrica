@@ -18,16 +18,16 @@ public class ArtistWork {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String AlbumName;
+    private String AlbumName;//ignore if you are releasing single
     private String NameOfGroupOrBandOrStageName;
     private String ContactNumber;
     private String titleOfWork;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ArtistUploadType_Id")
-    private ArtistUploadType artistUploadType;
+    private ArtistUploadType artistUploadType;// video/mp3
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ArtistWorkType_Id")
-    private ArtistWorkType artistWorkType;
+    private ArtistWorkType artistWorkType;//pop, jazz, e.t.c
     private String Duration;
     @Column(nullable=false)
     private String Composer;
@@ -52,7 +52,9 @@ public class ArtistWork {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="IPI_Id")
     private IPI IPI_For_Each_Work;
+    //
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Lincense_Type_Id")
-    private License_Type License_Type;
+    //
+    @JoinColumn(name="Lincense_Type_Id")//e.g broadcasting license and than after selected automatic generate copyrights as stands
+    private License_Type License_Type;//when you select license from the list auto generate the copy rights
 }

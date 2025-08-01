@@ -18,6 +18,7 @@ public class LogSheet {
     private Long id;
     private String LogSheetName;
     private String LogSheetDescription;
+    //
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ArtistUploadType_Id")
     private ArtistUploadType LogSheetType;

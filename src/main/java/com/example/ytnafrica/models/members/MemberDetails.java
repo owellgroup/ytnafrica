@@ -20,9 +20,8 @@ public class MemberDetails {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     //
-    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Titlle_Id")
+    @JoinColumn(name="Title_Id")
     private Tittle title;
     //
     @Column(unique = true)
@@ -45,7 +44,7 @@ public class MemberDetails {
     //
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MemberCategory_Id")
-    private MemberCategory MemberCategory;
+    private MemberCategory MemberCategory; //composer/Author/Arranger
     //
     private int NoOFDependents;
     //
@@ -73,22 +72,23 @@ public class MemberDetails {
     private String AddressOfEmployer;
     //
     private String NameOfTheBand;
+
     private LocalDate dateFounded;
     private int numberOfband;
     //attaching bank details to the form
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name="BankDetails_Id")
+    @JoinColumn (name="BankDetails_Id", nullable=false)
     private BankDetails BankDetails;
 
     //
-     // attaching Documents
+    // attaching Documents
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Documents_Id")
+    @JoinColumn(name="Documents_Id", nullable=false)
     private Documents documents;
     //
      //attching proof of payments
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ProofOfPayments_Id")
+    @JoinColumn(name="ProofOfPayments_Id", nullable=false)
     private ProofOfPayments ProofOfPayments;
     //
      //attaching passport

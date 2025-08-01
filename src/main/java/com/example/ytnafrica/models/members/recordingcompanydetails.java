@@ -21,6 +21,7 @@ public class recordingcompanydetails {
     @Column(name="id")
     private long id;
     private String RecordingCompany_ID;
+    @Column(nullable = false)
     private String TradingName;
     private String CompanyRegistrationNumber;
     private LocalDate DateOfRegistration;
@@ -32,8 +33,11 @@ public class recordingcompanydetails {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="Address_Id")
     private Address Address;
+
     private String Telephone;
+    @Column(nullable = false)
     private String Cellphone;
+    @Column(nullable = false)
     private String Email;
     //recodring members details
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,7 +45,7 @@ public class recordingcompanydetails {
     private recordingmembers recordingmembers;
     //bank details
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="BankDetails_Id")
+    @JoinColumn(name="BankDetails_Id",nullable = false)
     private BankDetails BankDetails;
 
 

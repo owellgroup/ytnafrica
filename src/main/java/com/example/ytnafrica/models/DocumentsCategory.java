@@ -15,5 +15,5 @@ public class DocumentsCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    private String categoryname;
+    private String categoryname;// id or passport
 }
