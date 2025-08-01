@@ -31,7 +31,7 @@ public class recordingcompanydetails {
 
     //using the existing address block
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Address_Id")
+    @JoinColumn(name="Address_id")
     private Address Address;
 
     private String Telephone;
@@ -41,11 +41,11 @@ public class recordingcompanydetails {
     private String Email;
     //recodring members details
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="recordingmembers_Id")
+    @JoinColumn(name="recordingmembers_id")
     private recordingmembers recordingmembers;
     //bank details
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="BankDetails_Id",nullable = false)
+    @JoinColumn(name="BankDetails_id",nullable = false)
     private BankDetails BankDetails;
 
 

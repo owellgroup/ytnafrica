@@ -19,10 +19,10 @@ public class Perfomance {
     @GeneratedValue(strategy= GenerationType.UUID)
     private UUID id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="LogSheet_Id")
+    @JoinColumn(name="LogSheet_id")
     private LogSheet logSheet;// we recieve the logsheet from the company and calcluale how many times each content was selected
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="companyDetails_Id")
+    @JoinColumn(name="companyDetails_id")
     private CompanyDetails companyDetails; //display companies and thier total logsheets
 
 }

@@ -19,10 +19,10 @@ public class Payments {
     @GeneratedValue(strategy= GenerationType.UUID)
     private UUID id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MembersDetails_Id")
+    @JoinColumn(name="MembersDetails_id")
     private MemberDetails memberDetails;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Perfomance_Id")
+    @JoinColumn(name="Perfomance_id")
     private Perfomance perfomance;
     private double Totalamount;
     private LocalDate date;

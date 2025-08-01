@@ -5,14 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="InvoiceStatus")
-public class InvoiceStatus {
+@Entity
+@Table(name="InvoiceDeclarationNotes")
+public class InvoiceDeclarationNotes {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-    private String statusName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String DeclarionNotes;
 }

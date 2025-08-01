@@ -21,35 +21,33 @@ public class Invoices {
     private String InvoiceNumber;
     private LocalDate Invoicedate;
     private LocalTime InvoiceDueDate;
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="InvoiceStatus_Id")
-    private InvoiceStatus InvoiceStatus;
     //Company details where the invoice is coming from
-    private String CompanyName;
-    private String CompanyAddress;
-    private String CompanyPhone;
-    private String CompanyEmail;
-    private String CompanyWebsite;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="OriginCampanydetails_id")
+    private OriginCompanyDetails origincompanydetails;
     //banking details for the company where the invoice is coming from
-    private String PaymentMethod;
-    private String BankName;
-    private String BankAccountName;
-    private String BankAccountNumber;
-    private String BranchName;
-    private String BranchCode;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="OriginCompanybankdetails_id")
+    private OrginCompanybankDetaills OriginCompanybankdetails;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="CompanyDetails_Id")
+    @JoinColumn(name="CompanyDetails_id")
     private CompanyDetails BillTo;
     //
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="InvoiceServiceType_Id")
+    @JoinColumn(name="InvoiceServiceType_id")
     private InvoiceServiceType InvoiceServiceType;
     private int TotalUsed;
     private double UnitPrice;
+    private double TotalPayable;
     private double Total;
     private double TotalTax;
-    private double TotalPayable;
+
+    //declatation notes for the invoices
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="InvoiceDeclarationNotes")
+    private InvoiceDeclarationNotes InvoiceDeclarationNotes;
+
 
 
 }

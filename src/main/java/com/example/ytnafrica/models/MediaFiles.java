@@ -23,7 +23,7 @@ public class MediaFiles {
 
     //attaching lyrics
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Lyrics_Id")
+    @JoinColumn(name="Lyrics_id")
     private Lyrics lyrics;
     //e.g mp3/Audio
     private LocalDate fileDatePosted;

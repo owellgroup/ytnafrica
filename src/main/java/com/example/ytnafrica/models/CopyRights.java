@@ -23,7 +23,7 @@ public class CopyRights {
     private String rights_registered_with; //NASCAM
     private String MemberID;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="License_Type_Id")
+    @JoinColumn(name="License_Type_id")
     private License_Type license_type;
     private LocalDate copyrightDate;
 }

@@ -21,7 +21,7 @@ public class MemberDetails {
     private long id;
     //
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Title_Id")
+    @JoinColumn(name="Title_id")
     private Tittle title;
     //
     @Column(unique = true)
@@ -39,11 +39,11 @@ public class MemberDetails {
     private String GroupNameORStageName;
     //
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MaritalStatus_Id")
+    @JoinColumn(name="MaritalStatus_id")
     private MaritalStatus MaritalStatus;
     //
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MemberCategory_Id")
+    @JoinColumn(name = "MemberCategory_id")
     private MemberCategory MemberCategory; //composer/Author/Arranger
     //
     private int NoOFDependents;
@@ -51,11 +51,11 @@ public class MemberDetails {
     private String TypeOfWork;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name= "Gender_Id")
+    @JoinColumn (name= "Gender_id")
     private Gender Gender;
     //
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Address_Id")
+    @JoinColumn(name="Address_id")
     private Address Address;
     //
     private LocalDate BirthDate;
@@ -77,44 +77,44 @@ public class MemberDetails {
     private int numberOfband;
     //attaching bank details to the form
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name="BankDetails_Id", nullable=false)
+    @JoinColumn (name="BankDetails_id", nullable=false)
     private BankDetails BankDetails;
 
     //
     // attaching Documents
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Documents_Id", nullable=false)
+    @JoinColumn(name="Documents_id", nullable=false)
     private Documents documents;
     //
      //attching proof of payments
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ProofOfPayments_Id", nullable=false)
+    @JoinColumn(name="ProofOfPayments_id", nullable=false)
     private ProofOfPayments ProofOfPayments;
     //
      //attaching passport
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="PassportPhoto_Id")
+    @JoinColumn(name="PassportPhoto_id")
     private PassportPhoto passportPhoto;
 
     //
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ArtistWork_Id")
+    @JoinColumn(name="ArtistWork_id")
     private ArtistWork artistWork;
 
      //
     //
     //attaching status
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Status_Id")
+    @JoinColumn(name="Status_id")
     private Status status;
     //
      //attaching notes
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Note_Id")
+    @JoinColumn(name="Note_id")
     private Note notes;
     //attaching IPI
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="IPI_Id")
+    @JoinColumn(name="IPI_id")
     private IPI IPI;
 
 

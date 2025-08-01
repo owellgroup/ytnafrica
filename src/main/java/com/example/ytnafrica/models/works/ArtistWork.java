@@ -23,10 +23,10 @@ public class ArtistWork {
     private String ContactNumber;
     private String titleOfWork;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ArtistUploadType_Id")
+    @JoinColumn(name="ArtistUploadType_id")
     private ArtistUploadType artistUploadType;// video/mp3
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ArtistWorkType_Id")
+    @JoinColumn(name="ArtistWorkType_id")
     private ArtistWorkType artistWorkType;//pop, jazz, e.t.c
     private String Duration;
     @Column(nullable=false)
@@ -47,14 +47,14 @@ public class ArtistWork {
     private String LabelName;
     private LocalDate RecordingDate;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MediaFiles_Id")
+    @JoinColumn(name="MediaFiles_id")
     private MediaFiles mediaFiles;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="IPI_Id")
+    @JoinColumn(name="IPI_id")
     private IPI IPI_For_Each_Work;
     //
     @ManyToOne(fetch = FetchType.LAZY)
     //
-    @JoinColumn(name="Lincense_Type_Id")//e.g broadcasting license and than after selected automatic generate copyrights as stands
+    @JoinColumn(name="Lincense_Type_id")//e.g broadcasting license and than after selected automatic generate copyrights as stands
     private License_Type License_Type;//when you select license from the list auto generate the copy rights
 }
