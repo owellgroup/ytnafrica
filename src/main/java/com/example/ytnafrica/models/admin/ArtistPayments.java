@@ -21,6 +21,7 @@ public class ArtistPayments {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="MembersDetails_Id")
     private MemberDetails memberDets;
+    
     //pay
     private int totalplay;
     private double totalpay;

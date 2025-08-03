@@ -2,7 +2,7 @@ package com.example.ytnafrica.models.members;
 
 import com.example.ytnafrica.models.Address;
 import com.example.ytnafrica.models.BankDetails;
-import com.example.ytnafrica.models.recordingmembers;
+import com.example.ytnafrica.models.RecordingMembers;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="recordingcompanies")
-public class recordingcompanydetails {
+public class RecordingCompanyDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
@@ -42,7 +42,7 @@ public class recordingcompanydetails {
     //recodring members details
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="recordingmembers_id")
-    private recordingmembers recordingmembers;
+    private RecordingMembers recordingmembers;
     //bank details
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="BankDetails_id",nullable = false)
