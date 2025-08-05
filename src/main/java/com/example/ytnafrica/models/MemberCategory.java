@@ -14,5 +14,5 @@ public class MemberCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String CategoryName;
+    private String CategoryName;//e.g composer, Author
 }

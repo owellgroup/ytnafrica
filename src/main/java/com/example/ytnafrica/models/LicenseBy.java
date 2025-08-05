@@ -17,5 +17,5 @@ public class LicenseBy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //e.g nascam
-    private String licenseBy;
+    private String licenseByWho;
 }
