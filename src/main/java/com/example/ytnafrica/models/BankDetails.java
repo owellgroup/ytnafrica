@@ -14,7 +14,7 @@ public class BankDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="BankName_id")
     private BankName BankName;
     @Column(nullable=false)

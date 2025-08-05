@@ -42,7 +42,7 @@ public class AddressService {
     }
 
     //delete method
-    public void deleteAddress(Address address) {
-        addressRepository.delete(address);
+    public void deleteAddressById(Long addressId) {
+        addressRepository.deleteById(addressId);
     }
 }
