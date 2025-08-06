@@ -25,7 +25,7 @@ public class ArtsitWorkTypeService {
     }
 
     //find by Id
-    public Optional<ArtistWorkType> WorkTypeById(long id){
+    public Optional<ArtistWorkType> WorkTypeById(Long id){
         return TypeRepo.findById(id);
 
     }
@@ -36,7 +36,7 @@ public class ArtsitWorkTypeService {
         updated.setWorkType(artistWorkType.getWorkType());
         return TypeRepo.save(updated);
     }
-    public void deleteWorkType(long id){
+    public void deleteWorkType(Long id){
         TypeRepo.deleteById(id);
     }
 

@@ -16,7 +16,7 @@ public class MediaFiles {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     private String fileName;
     private String fileUrl;
     private String fileType;

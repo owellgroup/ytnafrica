@@ -28,20 +28,20 @@ public class RecordingMembersController {
 
     //get by by
     @GetMapping("/{id}")
-    public Optional<RecordingMembers> getRecordingMembers(@PathVariable long id){
+    public Optional<RecordingMembers> getRecordingMembers(@PathVariable Long id){
         return recordingMservice.findRecordingMembersById(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public RecordingMembers updateMembers(@RequestBody RecordingMembers recordingMembers, @PathVariable long id){
+    public RecordingMembers updateMembers(@RequestBody RecordingMembers recordingMembers, @PathVariable Long id){
         recordingMembers.setId(id);
         return recordingMservice.saveRecordingMembers(recordingMembers);
     }
 
     //deleteing
     @DeleteMapping("/deletinng/{id}")
-    public void deleteMembers(@PathVariable long id){
+    public void deleteMembers(@PathVariable Long id){
         recordingMservice.deleteRecordingMembersById(id);
     }
 }

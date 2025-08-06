@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class PassportPhoto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String imagetitle;
     private String imageurl;
     private String FileType;

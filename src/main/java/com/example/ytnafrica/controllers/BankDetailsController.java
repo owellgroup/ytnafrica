@@ -44,7 +44,7 @@ public class BankDetailsController {
     }
     //updating
     @PutMapping("/update/{id}")
-    public BankDetails updateBankDetails(@PathVariable long id, @RequestBody BankDetails bankDetails) {
+    public BankDetails updateBankDetails(@PathVariable Long id, @RequestBody BankDetails bankDetails) {
         // Set the ID of the bank details from the path
         bankDetails.setId(id);
 

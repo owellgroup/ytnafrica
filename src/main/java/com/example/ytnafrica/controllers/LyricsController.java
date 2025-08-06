@@ -35,7 +35,7 @@ public class LyricsController {
 
     //updating
     @PutMapping("/update/{id}")
-    public Lyrics updateLyrics(Lyrics lyrics, @PathVariable long id){
+    public Lyrics updateLyrics(Lyrics lyrics, @PathVariable Long id){
         lyrics.setId(id);
         return lyricService.updateLyrics(lyrics);
     }

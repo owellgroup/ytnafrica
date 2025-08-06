@@ -29,19 +29,19 @@ public class LicenseByController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<LicenseBy> getLicenseBy(@PathVariable long id) {
+    public Optional<LicenseBy> getLicenseBy(@PathVariable  Long id) {
         return licenseByService.getLicenseBy(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public LicenseBy updateLicenseBy(@PathVariable long id, @RequestBody LicenseBy licenseBy) {
+    public LicenseBy updateLicenseBy(@PathVariable Long id, @RequestBody LicenseBy licenseBy) {
         licenseBy.setId(id);
         return licenseByService.updateLicenseBy(licenseBy);
     }
     //deleting
     @DeleteMapping("/{id}")
-    public void deleteLicenseBy(@PathVariable long id) {
+    public void deleteLicenseBy(@PathVariable  Long id) {
         licenseByService.deleteLicenseBy(id);
     }
 }

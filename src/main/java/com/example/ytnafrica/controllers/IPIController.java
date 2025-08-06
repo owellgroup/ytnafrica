@@ -28,20 +28,20 @@ public class IPIController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<IPI> getIPIById(@PathVariable long id) {
+    public Optional<IPI> getIPIById(@PathVariable  Long id) {
         return ipiService.getIPI(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public IPI updateIPI(@PathVariable long id, @RequestBody IPI ipi) {
+    public IPI updateIPI(@PathVariable Long id, @RequestBody IPI ipi) {
         ipi.setId(id);
         return ipiService.saveIPI(ipi);
     }
 
     //delete map
     @DeleteMapping("/delete/{id}")
-    public void deleteIPI(@PathVariable long id) {
+    public void deleteIPI(@PathVariable Long id) {
         ipiService.deleteIPI(id);
     }
 

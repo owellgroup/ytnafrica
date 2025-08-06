@@ -27,20 +27,20 @@ public class MembersCategoryController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<MemberCategory> getMemberCategoryById(@PathVariable long id){
+    public Optional<MemberCategory> getMemberCategoryById(@PathVariable Long id){
         return membersServices.findMemberCategoryById(id);
     }
 
     //update
     @PutMapping("/update/{id}")
-    public MemberCategory updateMemberCategory(@RequestBody MemberCategory membercategory, @PathVariable long id){
+    public MemberCategory updateMemberCategory(@RequestBody MemberCategory membercategory, @PathVariable Long id){
         membercategory.setId(id);
         return membersServices.updateMemberCategory(membercategory);
     }
 
     //Deleting
     @DeleteMapping("/delete/{id}")
-    public void deleteMemberCategory(@PathVariable long id){
+    public void deleteMemberCategory(@PathVariable Long id){
         membersServices.deleteMemberCategory(id);
     }
 

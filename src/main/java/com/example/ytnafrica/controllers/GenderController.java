@@ -29,19 +29,19 @@ public class GenderController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<Gender> getIdGender(long id) {
+    public Optional<Gender> getIdGender(Long id) {
         return  genderService.getGenderById(id);
     }
 
     //Delete
     @DeleteMapping("/delete")
-    public void deleteGender(long id) {
+    public void deleteGender(Long id) {
         genderService.deleteGender(id);
     }
 
     //Updating
     @PutMapping("/update/{id}")
-    public Gender updateGender(@RequestBody Gender gender, @PathVariable long id) {
+    public Gender updateGender(@RequestBody Gender gender, @PathVariable Long id) {
         gender.setId(id);
         return genderService.saveGender(gender);
     }

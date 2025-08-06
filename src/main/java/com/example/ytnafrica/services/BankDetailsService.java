@@ -34,12 +34,12 @@ public class BankDetailsService {
    }
 
    //get by ID
-    public Optional<BankDetails> getBankDetailsById(long id){
+    public Optional<BankDetails> getBankDetailsById(Long id){
         return bankDrepo.findById(id);
     }
 
     //detele\
-    public void deleteBankDetailsById(long id){
+    public void deleteBankDetailsById(Long id){
         bankDrepo.deleteById(id);
     }
 

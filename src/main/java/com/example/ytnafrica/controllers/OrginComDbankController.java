@@ -28,20 +28,20 @@ public class OrginComDbankController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<OrginCompanybankDetaills> getOne(@PathVariable long id){
+    public Optional<OrginCompanybankDetaills> getOne(@PathVariable Long id){
         return service.findCompanybankDetaills(id);
     }
 
     //update
     @PutMapping("/update/{id}")
-    public OrginCompanybankDetaills update(@RequestBody OrginCompanybankDetaills details, @PathVariable long id){
+    public OrginCompanybankDetaills update(@RequestBody OrginCompanybankDetaills details, @PathVariable Long id){
        details.setId(id);
        return service.updateCompanybankDetaills(details);
     }
 
     //deleting
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable long id){
+    public void delete(@PathVariable Long id){
         service.deleteCompanybankDetaills(id);
     }
 

@@ -30,20 +30,20 @@ public class TittleController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<Tittle> findTittleById(@PathVariable int id) {
+    public Optional<Tittle> findTittleById(@PathVariable Long id) {
         return tittleService.findTittleById(id);
     }
 
     //update
     @PutMapping("/update/{id}")
-    public Tittle updateTittle(@PathVariable int id, @RequestBody Tittle tittle) {
+    public Tittle updateTittle(@PathVariable Long id, @RequestBody Tittle tittle) {
         tittle.setId(id);
         return tittleService.saveTitle(tittle);
     }
 
     //delete
     @DeleteMapping("/delete/{id}")
-    public void deleteTittle(@PathVariable int id) {
+    public void deleteTittle(@PathVariable Long id) {
 
     }
 }

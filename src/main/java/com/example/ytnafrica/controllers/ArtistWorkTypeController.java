@@ -30,19 +30,19 @@ public class ArtistWorkTypeController {
 
     //find by Id
     @GetMapping("/{id}")
-    public Optional<ArtistWorkType> getArtistWorkType(@PathVariable long id) {
+    public Optional<ArtistWorkType> getArtistWorkType(@PathVariable Long id) {
         return artservice.WorkTypeById(id);
     }
 
     //Deleting Controller
     @DeleteMapping("/delete/{id}")
-    public void deleteArtistWorkType(@PathVariable long id) {
+    public void deleteArtistWorkType(@PathVariable Long id) {
         artservice.deleteWorkType(id);
     }
 
     //Put maping or Udating
     @PutMapping("/update/{id}")
-    public ArtistWorkType update(@PathVariable long id, @RequestBody ArtistWorkType artistW) {
+    public ArtistWorkType update(@PathVariable Long id, @RequestBody ArtistWorkType artistW) {
         artistW.setId(id);
         return artservice.updateWorkType(artistW);
     }

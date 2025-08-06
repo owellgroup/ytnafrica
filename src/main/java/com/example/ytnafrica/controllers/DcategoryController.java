@@ -27,19 +27,19 @@ public class DcategoryController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<DocumentsCategory> getDocCatById(@PathVariable long id) {
-        return documentCatService.getDocCat(id);
+    public Optional<DocumentsCategory> getDocCatById(@PathVariable Long id) {
+        return documentCatService.getDocCatById(id);
     }
 
     //deleting
     @DeleteMapping("/delete/{id}")
-    public void deleteDocCId(@PathVariable long id) {
+    public void deleteDocCId(@PathVariable Long id) {
         documentCatService.deleteDocCat(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public DocumentsCategory updateDocCat(@RequestBody DocumentsCategory docCat, @PathVariable long id) {
+    public DocumentsCategory updateDocCat(@RequestBody DocumentsCategory docCat, @PathVariable Long id) {
         docCat.setId(id);
         return documentCatService.updateDocCat(docCat);
     }

@@ -26,7 +26,7 @@ public class OriginCompanyService {
     }
 
     //get by Id
-    public Optional<OriginCompanyDetails> getById(int id){
+    public Optional<OriginCompanyDetails> getById(Long id){
         return Orginal.findById(id);
     }
 
@@ -42,7 +42,7 @@ public class OriginCompanyService {
     }
 
     //deleting
-    public void deleteById(int id){
+    public void deleteById(Long id){
         Orginal.deleteById(id);
     }
 

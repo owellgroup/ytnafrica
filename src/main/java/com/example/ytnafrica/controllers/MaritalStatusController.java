@@ -28,20 +28,20 @@ public class MaritalStatusController {
 
     //get by Id
     @GetMapping("/{id}")
-    public Optional<MaritalStatus> getMaritalStatus(@PathVariable long id){
+    public Optional<MaritalStatus> getMaritalStatus(@PathVariable Long id){
         return maritalStats.getMaritalStatusById(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public MaritalStatus updateMaritalStatus(@RequestBody MaritalStatus maritalStatus, @PathVariable long id){
+    public MaritalStatus updateMaritalStatus(@RequestBody MaritalStatus maritalStatus, @PathVariable Long id){
          maritalStatus.setId(id);
          return maritalStats.saveMaritalStatus(maritalStatus);
     }
 
     //deleting
     @DeleteMapping("/delete/{id}")
-    public void deleteMaritalStatus(@PathVariable long id){
+    public void deleteMaritalStatus(@PathVariable Long id){
         maritalStats.deleteMaritalStatus(id);
     }
 }

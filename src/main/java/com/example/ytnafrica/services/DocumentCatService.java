@@ -23,7 +23,7 @@ public class DocumentCatService {
     }
 
     //get by Id
-    public Optional<DocumentsCategory> getDocCat(long id) {
+    public Optional<DocumentsCategory> getDocCatById(Long id) {
         return docuCatRepository.findById(id);
     }
     //updating

@@ -23,12 +23,12 @@ public class ArtistUploadTypeService {
         return artUploadTypeRepo.findAll();
     }
     //
-    public Optional<ArtistUploadType> findArtistTypeById(long id){
+    public Optional<ArtistUploadType> findArtistTypeById(Long id){
         return artUploadTypeRepo.findById(id);
     }
 
     //deleting  method
-    public void deleteArtistTypeById(long id){
+    public void deleteArtistTypeById(Long id){
         artUploadTypeRepo.deleteById(id);
     }
 

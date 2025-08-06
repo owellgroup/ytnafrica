@@ -24,7 +24,7 @@ public class AddressService {
         return addressRepository.findAll();
     }
     //find by Id
-    public Optional<Address> getAddressById(long addressId) {
+    public Optional<Address> getAddressById(Long addressId) {
         return addressRepository.findById(addressId);
     }
     // update method

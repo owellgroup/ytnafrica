@@ -14,6 +14,6 @@ public class ArtistWorkType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     private String workType;// e.g Pop, Jazz, Gospel, etc
 }

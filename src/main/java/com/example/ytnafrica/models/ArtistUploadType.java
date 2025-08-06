@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class ArtistUploadType {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String WorkUploadType; //Audio/ Video/ both
 }

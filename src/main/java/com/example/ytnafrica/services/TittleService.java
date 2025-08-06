@@ -23,7 +23,7 @@ public class TittleService {
     }
 
     //get by Id
-    public Optional<Tittle> findTittleById(int id) {
+    public Optional<Tittle> findTittleById(Long id) {
         return tittleRepository.findById(id);
     }
 
@@ -34,7 +34,7 @@ public class TittleService {
         return tittleRepository.save(updatedTittle);
     }
     //deleting
-    public void deleteTitle(int id) {
+    public void deleteTitle(Long id) {
         tittleRepository.deleteById(id);
     }
 }

@@ -30,18 +30,18 @@ public class AddressController {
     }
     //get Adress by its ID number
     @GetMapping("/{id}")
-    public Optional<Address> getAddressById (@PathVariable long  id) {
+    public Optional<Address> getAddressById (@PathVariable Long  id) {
         return addressService.getAddressById(id);
     }
     //update method
     @PutMapping("/update/{id}")
-    public Address updateAddress (@RequestBody Address address, @PathVariable long id) {
+    public Address updateAddress (@RequestBody Address address, @PathVariable Long id) {
         address.setId(id);
         return addressService.UpdateAddress(address);
     }
     //delete method
     @DeleteMapping("/delete/{id}")
-    public void deleteAddressById (@PathVariable long  id) {
+    public void deleteAddressById (@PathVariable Long  id) {
      Address address = addressService.getAddressById(id).orElse(null);
      addressService.deleteAddressById(id);
     }

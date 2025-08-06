@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class BankDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name="BankName_id")
     private BankName BankName;

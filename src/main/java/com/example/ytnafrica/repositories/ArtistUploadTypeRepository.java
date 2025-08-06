@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ArtistUploadTypeRepository extends JpaRepository<ArtistUploadType, Long> {
-    List<ArtistUploadType> id(long id);
+    List<ArtistUploadType> id(Long id);
 }

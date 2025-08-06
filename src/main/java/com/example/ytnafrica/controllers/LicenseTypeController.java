@@ -27,13 +27,13 @@ public class LicenseTypeController {
 
     //get by id
     @GetMapping("/{id}")
-    public Optional<License_Type> getLicenseType(@PathVariable long id) {
+    public Optional<License_Type> getLicenseType(@PathVariable Long id) {
         return liceService.getLicenseTypeById(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public License_Type updateLicenseType(@RequestBody License_Type licensetp, @PathVariable long id) {
+    public License_Type updateLicenseType(@RequestBody License_Type licensetp, @PathVariable Long id) {
         licensetp.setId(id);
         return liceService.updateLicense(licensetp);
 
@@ -41,7 +41,7 @@ public class LicenseTypeController {
 
     //deleteing
     @DeleteMapping("/delete/{id}")
-    public void deleteLicenseType(@PathVariable long id) {
+    public void deleteLicenseType(@PathVariable Long id) {
         liceService.deleteLicense(id);
     }
 }

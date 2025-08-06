@@ -27,19 +27,19 @@ public class BankNameController {
     }
     //get bank y Id
     @GetMapping("/{id}")
-    public Optional<BankName> getBankNameById(long id) {
+    public Optional<BankName> getBankNameById(Long id) {
         return bankNameService.getBankById(id);
     }
 
     //delete
     @DeleteMapping("/{id}")
-    public void deleteBankNameById(long id) {
+    public void deleteBankNameById(Long id) {
         bankNameService.deleteBankById(id);
     }
 
     //updating
     @PutMapping("/update/{id}")
-    public BankName updateBankName(@PathVariable long id, @RequestBody BankName bankName) {
+    public BankName updateBankName(@PathVariable Long id, @RequestBody BankName bankName) {
         bankName.setId(id);
         return bankNameService.updateBank(bankName);
     }

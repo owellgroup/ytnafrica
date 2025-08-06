@@ -28,13 +28,13 @@ public class OriginComDeController {
     }
     //get by id
     @GetMapping("/{id}")
-    public Optional<OriginCompanyDetails> getOne(@PathVariable int id){
+    public Optional<OriginCompanyDetails> getOne(@PathVariable Long id){
         return service.getById(id);
     }
 
     //update
     @PutMapping("/update/{id}")
-    public OriginCompanyDetails update(@PathVariable int id, @RequestBody OriginCompanyDetails originCamp){
+    public OriginCompanyDetails update(@PathVariable Long id, @RequestBody OriginCompanyDetails originCamp){
         originCamp.setId(id);
         return service.update(originCamp);
 
@@ -42,7 +42,7 @@ public class OriginComDeController {
 
     //delete
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable int id){
+    public void delete(@PathVariable Long id){
         service.deleteById(id);
     }
 }

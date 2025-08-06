@@ -27,19 +27,19 @@ public class NoteController {
 
     //get by id
     @GetMapping("/{id}")
-    public Optional<Note> getNoteById(@PathVariable long id){
+    public Optional<Note> getNoteById(@PathVariable Long id){
         return noteService.findNoteById(id);
     }
     //updating
     @PutMapping("/update/{id}")
-    public Note updateNote(@RequestBody Note note, @PathVariable long id){
+    public Note updateNote(@RequestBody Note note, @PathVariable Long id){
         note.setId(id);
         return noteService.saveNote(note);
     }
 
     //delete
     @DeleteMapping("delete/{id}")
-    public void deleteNote(@PathVariable long id){
+    public void deleteNote(@PathVariable Long id){
         noteService.deleteNote(id);
     }
 }

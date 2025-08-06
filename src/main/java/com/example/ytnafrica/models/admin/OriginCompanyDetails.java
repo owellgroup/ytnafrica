@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class OriginCompanyDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private Long id;
     //where the invoice is coming from
     private String CompanyName;
     private String CompanyAddress;

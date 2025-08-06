@@ -27,20 +27,20 @@ public class InvoiceServiceController {
     }
     //get by Id
     @GetMapping("/{id}")
-    public Optional<InvoiceServiceType> getInvoiceServiceType(@PathVariable long id){
+    public Optional<InvoiceServiceType> getInvoiceServiceType(@PathVariable Long id){
         return invoiceS.getInvoiceServiceTypeById(id);
     }
 
     //update
     @PutMapping("/update/{id}")
-    public InvoiceServiceType updateInvoiceServiceType(@PathVariable long id, @RequestBody InvoiceServiceType invoiceServiceType){
+    public InvoiceServiceType updateInvoiceServiceType(@PathVariable Long id, @RequestBody InvoiceServiceType invoiceServiceType){
         invoiceServiceType.setId(id);
         return invoiceS.saveInvoiceServiceType(invoiceServiceType);
     }
 
     //deleting
     @DeleteMapping("/delete/{id}")
-    public void deleteInvoiceServiceType(@PathVariable long id){
+    public void deleteInvoiceServiceType(@PathVariable Long id){
            invoiceS.deleteInvoiceServiceType(id);
     }
 }

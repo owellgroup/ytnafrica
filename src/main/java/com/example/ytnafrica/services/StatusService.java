@@ -22,7 +22,7 @@ public class StatusService {
         return statusrepo.findAll();
     }
     //get  by id
-    public Optional<Status> findStatusById(long id){
+    public Optional<Status> findStatusById(Long id){
         return statusrepo.findById(id);
     }
     //update
@@ -32,7 +32,7 @@ public class StatusService {
         return statusrepo.save(updatedStatus);
     }
     //deleting
-   public void deleteStatusById(long id){
+   public void deleteStatusById(Long id){
         statusrepo.deleteById(id);
    }
 
