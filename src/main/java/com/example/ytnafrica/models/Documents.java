@@ -21,7 +21,7 @@ public class Documents {
     private String fileType;
     private String fileUrl;
     private LocalDate dateposted;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn (name="documentsCategoory_id")
     private DocumentsCategory documentsCategory;//Id or Passport
 

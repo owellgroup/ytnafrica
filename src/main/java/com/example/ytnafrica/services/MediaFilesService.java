@@ -1,13 +1,11 @@
 package com.example.ytnafrica.services;
 
 import com.example.ytnafrica.models.Documents;
-import com.example.ytnafrica.models.DocumentsCategory;
-import com.example.ytnafrica.repositories.DocumentsRepository;
+import com.example.ytnafrica.models.MediaFiles;
+import com.example.ytnafrica.repositories.MediaFilesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -23,22 +20,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DocumentService {
+public class MediaFilesService {
     @Autowired
-    private DocumentCatService docurep;
-    @Autowired
-    private DocumentsRepository documentsrepo;
-
-    //directory
+    private MediaFilesRepository mediaFilesRepository;
+    //file directory
     private static final String UPLOAD_DIR = System.getProperty("user.dir") + "/uploads/";
 
-    //post
-    public Documents uploadDocument(MultipartFile file, String tittle, Long categoryId) throws Exception {
+    //post ]ing
+    public MediaFiles uploadMediaFile(MultipartFile file, String MediafileName, String lyrics) throws Exception {
         // Validate file type
         String contentType = file.getContentType();
-        if (contentType == null || (!contentType.equals("application/pdf")
-                )) {
-            throw new IllegalArgumentException("Only PDF files are allowed");
+
+        // Allow all audio/* and video/* MIME types
+        if (contentType == null ||
+                (!contentType.startsWith("audio/") && !contentType.startsWith("video/"))) {
+            throw new IllegalArgumentException("Only audio and video files are allowed");
         }
 
         // Ensure upload directory exists
@@ -53,19 +49,16 @@ public class DocumentService {
         Path filePath = Paths.get(UPLOAD_DIR).resolve(fileName);
         Files.copy(file.getInputStream(), filePath);
 
+
         // Generate a public URL for the file
-        String fileUrl = "http://localhost:8080/api/documents/view/" + fileName;
-        //create document entity
-        Documents documents = new Documents();
-        documents.setTitle(tittle);
-        documents.setDateposted(LocalDate.now());
-        documents.setFileUrl(fileUrl);
-        documents.setFileType(contentType);
-        //fetching document category type
-        //DocumentsCategory documentsCategory = docurep.findById(documents.getId()).orElse(null);
-        DocumentsCategory documentsCategory = docurep.getDocCatById(categoryId).orElseThrow(() -> new RuntimeException("Category not found"));;
-        documents.setDocumentsCategory(documentsCategory);
-        return documentsrepo.save(documents);
+        String fileUrl = "http://localhost:8080/api/mediafiles/view/" + fileName;
+        MediaFiles mediaFiles = new MediaFiles();
+        mediaFiles.setLyrics(lyrics);
+        mediaFiles.setMediafileName(MediafileName);
+        mediaFiles.setFileUrl(fileUrl);
+        mediaFiles.setFileDatePosted(LocalDate.now());
+        mediaFiles.setFileType(contentType);
+        return mediaFilesRepository.save(mediaFiles);
 
     }
 
@@ -104,20 +97,20 @@ public class DocumentService {
         }
     }
 
-    //fetch document by Category
-    public List<Documents> getDocsByCategory(Long categoryId) {
-        return documentsrepo.findDocumentByDocumentsCategoryId(categoryId);
+    //get Media Files
+    public List<MediaFiles> getMediaFiles() {
+        return mediaFilesRepository.findAll();
     }
 
-    //Get documents by Id
-
-    public Optional<Documents> getDocById(Long id) {
-        return documentsrepo.findById(id);
+    //get media files by Id
+    public Optional<MediaFiles> getMediaFileById(Long id) {
+        return mediaFilesRepository.findById(id);
     }
 
-    //updating document
-    public Documents updateDocument(Long id, String tittle, Long categoryId, MultipartFile file) throws Exception {
-        Documents existingDocument = documentsrepo.findById(id).orElseThrow(() -> new RuntimeException("Document not found"));
+    //update method
+    public MediaFiles updateMediaFiles (Long id, MultipartFile file, String MediafileName, String lyrics) throws IOException {
+        MediaFiles existingDocument = mediaFilesRepository.findById(id).orElseThrow(() -> new RuntimeException("media not found"));
+
         // Update fields
         if (file != null && !file.isEmpty()) {
             // Save the file with timestamp to handle duplicates
@@ -128,45 +121,22 @@ public class DocumentService {
             Path filePath = Paths.get(UPLOAD_DIR).resolve(fileName);
             Files.copy(file.getInputStream(), filePath);
 
-            String fileUrl = "http://localhost:8080/api/documents/view/" + fileName;
+            String fileUrl = "http://localhost:8080/api/mediafiles/view/" + fileName;
             existingDocument.setFileUrl(fileUrl);
             existingDocument.setFileType(file.getContentType());
 
         }
 
-        existingDocument.setTitle(tittle);
-        existingDocument.setDateposted(LocalDate.now());
-        //fetching Document Category
-        if (categoryId != null) {
-            DocumentsCategory documentsCategory = docurep.getDocCatById(categoryId).orElseThrow(() -> new RuntimeException("Category not found"));;
-            existingDocument.setDocumentsCategory(documentsCategory);
-        }
-        return documentsrepo.save(existingDocument);
-
+        existingDocument.setLyrics(lyrics);
+        existingDocument.setFileDatePosted(LocalDate.now());
+        existingDocument.setMediafileName(MediafileName);
+        return mediaFilesRepository.save(existingDocument);
     }
 
-    //deteting
-    public void deleteDocument(Long id) throws Exception {
-        Documents documents = documentsrepo.findById(id).orElseThrow(() -> new RuntimeException("Document not found"));
-        documentsrepo.deleteById(id);
+    //deleting method
+    public void deleteMediaFileById(Long id) throws Exception {
+        mediaFilesRepository.deleteById(id);
     }
-
-
-    //downloading
-    public ResponseEntity<Resource> downloadDocument(Long id) throws IOException {
-        Documents document = getDocById(id)
-                .orElseThrow(() -> new RuntimeException("Document not found"));
-
-        Path path = Paths.get(document.getFileUrl());
-        Resource resource = loadFileAsResource(path.toString());
-
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + path.getFileName() + "\"")
-                .body(resource);
-    }
-
-
-
 
 
 

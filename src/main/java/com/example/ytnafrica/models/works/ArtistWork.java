@@ -46,16 +46,18 @@ public class ArtistWork {
     private String RecordingCompanyEmail;
     private String LabelName;
     private LocalDate RecordingDate;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="MediaFiles_id")
     private MediaFiles mediaFiles;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="IPI_id")
     private IPI IPI_For_Each_Work;
     //
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="CopyRight_id")
     private CopyRights copyRights;
     //generate copyrights
 
+    //add artist details for admins like Id or names
+   //user details for role base
 }

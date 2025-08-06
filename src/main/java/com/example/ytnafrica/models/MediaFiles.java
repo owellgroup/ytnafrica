@@ -1,6 +1,7 @@
 package com.example.ytnafrica.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,14 +18,12 @@ public class MediaFiles {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
-    private String fileName;
+    private String MediafileName;
     private String fileUrl;
     private String fileType;
 
-    //attaching lyrics
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Lyrics_id")
-    private Lyrics lyrics;
+
+    private String lyrics;
     //e.g mp3/Audio
     private LocalDate fileDatePosted;
 }

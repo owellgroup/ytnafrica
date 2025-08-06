@@ -23,7 +23,7 @@ public class LogSheet {
     @JoinColumn(name="ArtistUploadType_Id")
     private ArtistUploadType LogSheetType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="ArtistWork_Id")
     private ArtistWork artistWork;
 }
