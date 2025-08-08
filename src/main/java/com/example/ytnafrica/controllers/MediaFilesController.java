@@ -52,7 +52,7 @@ public class MediaFilesController {
         mediaFilesService.deleteMediaFileById(id);
     }
     //viewing
-    // Add this method to MediaFilesController
+    //
     @GetMapping("/view/{filename:.+}")
     public ResponseEntity<Resource> viewFile(@PathVariable String filename) {
         try {
